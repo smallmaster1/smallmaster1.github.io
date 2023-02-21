@@ -35,162 +35,6 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </tags>
   </entry>
   <entry>
-    <title>linux一些常用命令</title>
-    <url>//post/others/linux.html</url>
-    <content><![CDATA[<h1 id="linux"><a class="anchor" href="#linux">#</a> linux</h1>
-<p>sudo su   // 切换到超级用户</p>
-<p>su pi // 切换回普通用户</p>
-<h1 id="目录切换命令"><a class="anchor" href="#目录切换命令">#</a> 目录切换命令</h1>
-<table>
-<thead>
-<tr>
-<th>pwd</th>
-<th>显示当前所在目录</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd ~</td>
-<td>切换到主目录</td>
-</tr>
-<tr>
-<td>cd dir</td>
-<td>切换到指定目录 dir 表示文件路径</td>
-</tr>
-<tr>
-<td>cd ..</td>
-<td>切换到上一级目录</td>
-</tr>
-</tbody>
-</table>
-<h1 id="文件展示命令"><a class="anchor" href="#文件展示命令">#</a> 文件展示命令</h1>
-<table>
-<thead>
-<tr>
-<th>ls</th>
-<th>展示当前目录下所有文件和文件夹</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ls -a</td>
-<td>展示当前目录下所有文件和文件夹（包括隐藏）</td>
-</tr>
-</tbody>
-</table>
-<h1 id="文件夹操作"><a class="anchor" href="#文件夹操作">#</a> 文件夹操作</h1>
-<table>
-<thead>
-<tr>
-<th>touch file</th>
-<th>创建文件 file</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mkdir dir</td>
-<td>创建目录 dir</td>
-</tr>
-<tr>
-<td>cat file</td>
-<td>查看文件 file 内容</td>
-</tr>
-<tr>
-<td>head  file</td>
-<td>查看文件前十行</td>
-</tr>
-<tr>
-<td>tail file</td>
-<td>查看文件后十行</td>
-</tr>
-<tr>
-<td>rm file</td>
-<td>删除文件 file</td>
-</tr>
-<tr>
-<td>rm -r dir</td>
-<td>删除目录 dir</td>
-</tr>
-<tr>
-<td>mv  file1 file2</td>
-<td>移动文件 如果 2 不存在将 1 改名为 2，存在则覆盖 2，并改名为 2</td>
-</tr>
-<tr>
-<td>mv file dir</td>
-<td>将文件移动到 dir 目录中</td>
-</tr>
-</tbody>
-</table>
-<h1 id="关机"><a class="anchor" href="#关机">#</a> 关机</h1>
-<table>
-<thead>
-<tr>
-<th>sudo poweroff</th>
-<th>关机</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sudo shutdown -r</td>
-<td>重启</td>
-</tr>
-<tr>
-<td>sudo shutdown -h</td>
-<td>关机</td>
-</tr>
-<tr>
-<td>sudo shutdown -h+2</td>
-<td>2 分钟后关机</td>
-</tr>
-</tbody>
-</table>
-<h1 id="pyhton"><a class="anchor" href="#pyhton">#</a> pyhton</h1>
-<p>pip install pandas   安装第三方库</p>
-<p>pip3 install pandas</p>
-<h1 id="ras点亮一个小灯"><a class="anchor" href="#ras点亮一个小灯">#</a> RAS 点亮一个小灯</h1>
-<table>
-<thead>
-<tr>
-<th>chmod  u+x  <a href="http://1.py">1.py</a></th>
-<th>文件所有者 为指定的用户类型增加权限     执行权限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>python <a href="http://1.py">1.py</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="方式一-py控制"><a class="anchor" href="#方式一-py控制">#</a> 方式一 py 控制</h2>
-<p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO  <span class="token comment">#映射为 GPIO</span>
-<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep   
-
-GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>  <span class="token comment">#设置模式 使用 BCM 编号</span>
-GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>  <span class="token comment">#配置为输出的通道</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>  <span class="token comment">#设置 GPIO 针脚的输出状态</span>
-    sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
-    GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>LOW<span class="token punctuation">)</span>
-    sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
-<span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-GPIO<span class="token punctuation">.</span>cleanup<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#在您的脚本结束后进行清理</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<h2 id="管脚编码查询"><a class="anchor" href="#管脚编码查询">#</a> 管脚编码查询</h2>
-<p>gpio readall  #查询树莓派管脚状态（全部编码）</p>
-<p>pinout #板载编码</p>
-<h1 id="安装app"><a class="anchor" href="#安装app">#</a> 安装 app</h1>
-<p>sudo apt-get install qt-sdk</p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>树莓派</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python 快速实现栅格地图（2）</title>
     <url>//post/others/Python%20%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE%EF%BC%882%EF%BC%89.html</url>
     <content><![CDATA[<p>通过上文 [[Python 快速实现栅格地图（2）]]] 可进行快速的地图搭建。如果需要添加一些始末点方便可视化，方法也比较简单。只需更改你的 map_test 地图中的值即可。</p>
@@ -350,6 +194,162 @@ Z-Y-Z Euler Angles - 由 R 推算 angles<br />
       </tags>
   </entry>
   <entry>
+    <title>linux一些常用命令</title>
+    <url>//post/others/linux.html</url>
+    <content><![CDATA[<h1 id="linux"><a class="anchor" href="#linux">#</a> linux</h1>
+<p>sudo su   // 切换到超级用户</p>
+<p>su pi // 切换回普通用户</p>
+<h1 id="目录切换命令"><a class="anchor" href="#目录切换命令">#</a> 目录切换命令</h1>
+<table>
+<thead>
+<tr>
+<th>pwd</th>
+<th>显示当前所在目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd ~</td>
+<td>切换到主目录</td>
+</tr>
+<tr>
+<td>cd dir</td>
+<td>切换到指定目录 dir 表示文件路径</td>
+</tr>
+<tr>
+<td>cd ..</td>
+<td>切换到上一级目录</td>
+</tr>
+</tbody>
+</table>
+<h1 id="文件展示命令"><a class="anchor" href="#文件展示命令">#</a> 文件展示命令</h1>
+<table>
+<thead>
+<tr>
+<th>ls</th>
+<th>展示当前目录下所有文件和文件夹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls -a</td>
+<td>展示当前目录下所有文件和文件夹（包括隐藏）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="文件夹操作"><a class="anchor" href="#文件夹操作">#</a> 文件夹操作</h1>
+<table>
+<thead>
+<tr>
+<th>touch file</th>
+<th>创建文件 file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdir dir</td>
+<td>创建目录 dir</td>
+</tr>
+<tr>
+<td>cat file</td>
+<td>查看文件 file 内容</td>
+</tr>
+<tr>
+<td>head  file</td>
+<td>查看文件前十行</td>
+</tr>
+<tr>
+<td>tail file</td>
+<td>查看文件后十行</td>
+</tr>
+<tr>
+<td>rm file</td>
+<td>删除文件 file</td>
+</tr>
+<tr>
+<td>rm -r dir</td>
+<td>删除目录 dir</td>
+</tr>
+<tr>
+<td>mv  file1 file2</td>
+<td>移动文件 如果 2 不存在将 1 改名为 2，存在则覆盖 2，并改名为 2</td>
+</tr>
+<tr>
+<td>mv file dir</td>
+<td>将文件移动到 dir 目录中</td>
+</tr>
+</tbody>
+</table>
+<h1 id="关机"><a class="anchor" href="#关机">#</a> 关机</h1>
+<table>
+<thead>
+<tr>
+<th>sudo poweroff</th>
+<th>关机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sudo shutdown -r</td>
+<td>重启</td>
+</tr>
+<tr>
+<td>sudo shutdown -h</td>
+<td>关机</td>
+</tr>
+<tr>
+<td>sudo shutdown -h+2</td>
+<td>2 分钟后关机</td>
+</tr>
+</tbody>
+</table>
+<h1 id="pyhton"><a class="anchor" href="#pyhton">#</a> pyhton</h1>
+<p>pip install pandas   安装第三方库</p>
+<p>pip3 install pandas</p>
+<h1 id="ras点亮一个小灯"><a class="anchor" href="#ras点亮一个小灯">#</a> RAS 点亮一个小灯</h1>
+<table>
+<thead>
+<tr>
+<th>chmod  u+x  <a href="http://1.py">1.py</a></th>
+<th>文件所有者 为指定的用户类型增加权限     执行权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>python <a href="http://1.py">1.py</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="方式一-py控制"><a class="anchor" href="#方式一-py控制">#</a> 方式一 py 控制</h2>
+<p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO  <span class="token comment">#映射为 GPIO</span>
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep   
+
+GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>  <span class="token comment">#设置模式 使用 BCM 编号</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>  <span class="token comment">#配置为输出的通道</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>HIGH<span class="token punctuation">)</span>  <span class="token comment">#设置 GPIO 针脚的输出状态</span>
+    sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+    GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>LOW<span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+<span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>cleanup<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">#在您的脚本结束后进行清理</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<h2 id="管脚编码查询"><a class="anchor" href="#管脚编码查询">#</a> 管脚编码查询</h2>
+<p>gpio readall  #查询树莓派管脚状态（全部编码）</p>
+<p>pinout #板载编码</p>
+<h1 id="安装app"><a class="anchor" href="#安装app">#</a> 安装 app</h1>
+<p>sudo apt-get install qt-sdk</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>浅谈智能车入门</title>
     <url>//post/others/%E6%B5%85%E8%B0%88%E6%99%BA%E8%83%BD%E8%BD%A6%E5%85%A5%E9%97%A8.html</url>
     <content><![CDATA[<h1 id="浅谈智能车入门"><a class="anchor" href="#浅谈智能车入门">#</a> 浅谈智能车入门</h1>
@@ -487,46 +487,6 @@ Z-Y-Z Euler Angles - 由 R 推算 angles<br />
       </tags>
   </entry>
   <entry>
-    <title>运动规划随笔记录</title>
-    <url>//post/planning/%E6%B7%B7%E6%B2%8C%E6%97%A0%E5%BD%A2-%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92.html</url>
-    <content><![CDATA[<p><img src="/pic/20221207095020.png" class="lazyload placeholder" data-srcset="/pic/20221207095020.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /><br />
-笔者认为难点之一是如何处理存在耦合关系的路径与速度曲线的优化问题，常用方式有三种：</p>
-<p>1）<strong>路径 - 速度完全脱离处理</strong>：仅单纯生成平滑路径，再使用曲线跟踪算法控制机器人运动，该方法动态避障性能偏弱。</p>
-<p>2）<strong>路径 - 速度循环迭代优化</strong>：先生成无碰撞路径（静态避障），再基于该路径生成稳定好的无碰撞速度曲线（动态避障），并通过循环迭代优化算法生成最佳轨迹曲线，该方法降低优化维度，提升了优化效率。</p>
-<p>3）<strong>路径 - 速度 “捆绑” 优化</strong>：综合考虑所有的约束关系及优化目标，生成最优轨迹曲线，该方法生成的轨迹效果很好，但存在优化模型构造难度大、优化效率不高等问题。</p>
-<h1 id="图规划算法"><a class="anchor" href="#图规划算法">#</a> 图规划算法</h1>
-<p>图规划算法多数将环境模型离散化表达，如栅格图等，其离散节点描述相应状态，建立节点间联系，并求解最优路径。<br />
-<img src="/pic/20221207095412.png" class="lazyload placeholder" data-srcset="/pic/20221207095412.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
-<h1 id="空间采样算法"><a class="anchor" href="#空间采样算法">#</a> 空间采样算法</h1>
-<p>空间采样算法按照采样空间不同，可分为：<strong>状态空间采样</strong>和<strong>运动空间采样</strong>。</p>
-<p>基于状态空间采样的算法能够在大面积、高纬度的空间中快速生成路径，包括 RRT 和 PRM 类算法等，具有概率完备性，其主要步骤包括随机采样、度量连接、碰撞检测和路径查询。</p>
-<p>基于运动空间采样的算法则在速度空间等距采样，通过评价函数选择最佳控制指令，驱动机器人运动，主要包括 CVM 类算法及 DWA 类算法等。<br />
-<img src="/pic/20221207100001.png" class="lazyload placeholder" data-srcset="/pic/20221207100001.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
-<h1 id="曲线插值拟合算法"><a class="anchor" href="#曲线插值拟合算法">#</a> 曲线插值拟合算法</h1>
-<p>上述大部分《图规划算法》和《空间采样算法》生成的路径存在折点、急弯等曲率不连续的情况，影响了机器人运动平稳性，因此需要综合考虑模型硬约束与实际规划软需求，以提<strong>升路径平滑度</strong>。<br />
-<img src="/pic/20221207102209.png" class="lazyload placeholder" data-srcset="/pic/20221207102209.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
-<p><strong>CHOMP 规划算法</strong></p>
-<p>如上图所示，曲线插值拟合算法在曲线平滑控制及优化方面有显著的优势，按照曲线生成方式及其种类可分为：<strong>基于插值的规划算法</strong>、<strong>基于特殊曲线的规划算法</strong>及<strong>基于优化的规划算法</strong>三类，该类算法在自动驾驶等领域有着广泛的应用。</p>
-<h1 id="仿生智能算法"><a class="anchor" href="#仿生智能算法">#</a> 仿生智能算法</h1>
-<p>针对机器人运动规划问题，除上述基于经典模型的规划算法外（《图规划算法》、《空间采样算法》和《曲线插值拟合算法》），还有神经网络、模糊逻辑及基于自然灵感的算法（遗传算法、粒子群算法、蚁群算法等），并逐渐成为研究热点。</p>
-<p>如图所示，与经典算法相比，智能算法能够较好适应复杂动态环境中的不确定、不完整的信息，但需要前期学习阶段和较高计算成本，适用于大型机器人，如无人车等。<br />
-<img src="/pic/20221207102538.png" class="lazyload placeholder" data-srcset="/pic/20221207102538.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
-<h1 id="对比"><a class="anchor" href="#对比">#</a> 对比</h1>
-<p>图规划算法与空间采样算法已经能够在诸多场景下的规划生成一条无碰撞路径，实时性和动态适应性逐渐提升，但多数算法仍存在路径质量差、未考虑动力学约束等问题。而曲线插值拟合算法正好与之配合，能够容易生成连续性好的轨迹曲线。</p>
-<p>多数<strong>仿生智能算法</strong>处理动态环境下的规划问题时存在<strong>实时性、收敛性均不稳定</strong>等问题，实际应用较少。</p>
-<p>从目前研究思路来看，多是先采用图规划算法、空间采样算法生成全局路径或初始路径，再使用曲线插值拟合算法，综合考虑系统软硬约束，优化生成质量好的轨迹。<br />
-<img src="/pic/20221207102742.png" class="lazyload placeholder" data-srcset="/pic/20221207102742.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
-<p><strong>转自</strong>：<a href="https://zhuanlan.zhihu.com/p/518369017">https://zhuanlan.zhihu.com/p/518369017</a></p>
-]]></content>
-      <categories>
-        <category>规划控制</category>
-      </categories>
-      <tags>
-        <tag>规划</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>智能网联汽车协同决策与规划技术笔记</title>
     <url>//post/planning/%E6%99%BA%E8%83%BD%E7%BD%91%E8%81%94%E6%B1%BD%E8%BD%A6%E5%8D%8F%E5%90%8C%E5%86%B3%E7%AD%96%E4%B8%8E%E8%A7%84%E5%88%92%E6%8A%80%E6%9C%AF.html</url>
     <content><![CDATA[<h1 id="低速解构化场景中的单一车辆决策与规划"><a class="anchor" href="#低速解构化场景中的单一车辆决策与规划">#</a> 低速解构化场景中的单一车辆决策与规划</h1>
@@ -608,6 +568,46 @@ X 为决策变量，S 为引入的松弛矢量<br />
 <img src="/pic/20220919165131.png" class="lazyload placeholder" data-srcset="/pic/20220919165131.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
 <h2 id="内容来源"><a class="anchor" href="#内容来源">#</a> 内容来源</h2>
 <p>本章内容来源于，湖南大学李柏老师的书籍 &lt;&lt;智能网联汽车协同决策与规划技术&gt;&gt;，书的内容包含单车和多车的规划，内容非常棒，推荐做协同轨迹规划的同学看看。</p>
+]]></content>
+      <categories>
+        <category>规划控制</category>
+      </categories>
+      <tags>
+        <tag>规划</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运动规划随笔记录</title>
+    <url>//post/planning/%E6%B7%B7%E6%B2%8C%E6%97%A0%E5%BD%A2-%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92.html</url>
+    <content><![CDATA[<p><img src="/pic/20221207095020.png" class="lazyload placeholder" data-srcset="/pic/20221207095020.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /><br />
+笔者认为难点之一是如何处理存在耦合关系的路径与速度曲线的优化问题，常用方式有三种：</p>
+<p>1）<strong>路径 - 速度完全脱离处理</strong>：仅单纯生成平滑路径，再使用曲线跟踪算法控制机器人运动，该方法动态避障性能偏弱。</p>
+<p>2）<strong>路径 - 速度循环迭代优化</strong>：先生成无碰撞路径（静态避障），再基于该路径生成稳定好的无碰撞速度曲线（动态避障），并通过循环迭代优化算法生成最佳轨迹曲线，该方法降低优化维度，提升了优化效率。</p>
+<p>3）<strong>路径 - 速度 “捆绑” 优化</strong>：综合考虑所有的约束关系及优化目标，生成最优轨迹曲线，该方法生成的轨迹效果很好，但存在优化模型构造难度大、优化效率不高等问题。</p>
+<h1 id="图规划算法"><a class="anchor" href="#图规划算法">#</a> 图规划算法</h1>
+<p>图规划算法多数将环境模型离散化表达，如栅格图等，其离散节点描述相应状态，建立节点间联系，并求解最优路径。<br />
+<img src="/pic/20221207095412.png" class="lazyload placeholder" data-srcset="/pic/20221207095412.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
+<h1 id="空间采样算法"><a class="anchor" href="#空间采样算法">#</a> 空间采样算法</h1>
+<p>空间采样算法按照采样空间不同，可分为：<strong>状态空间采样</strong>和<strong>运动空间采样</strong>。</p>
+<p>基于状态空间采样的算法能够在大面积、高纬度的空间中快速生成路径，包括 RRT 和 PRM 类算法等，具有概率完备性，其主要步骤包括随机采样、度量连接、碰撞检测和路径查询。</p>
+<p>基于运动空间采样的算法则在速度空间等距采样，通过评价函数选择最佳控制指令，驱动机器人运动，主要包括 CVM 类算法及 DWA 类算法等。<br />
+<img src="/pic/20221207100001.png" class="lazyload placeholder" data-srcset="/pic/20221207100001.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
+<h1 id="曲线插值拟合算法"><a class="anchor" href="#曲线插值拟合算法">#</a> 曲线插值拟合算法</h1>
+<p>上述大部分《图规划算法》和《空间采样算法》生成的路径存在折点、急弯等曲率不连续的情况，影响了机器人运动平稳性，因此需要综合考虑模型硬约束与实际规划软需求，以提<strong>升路径平滑度</strong>。<br />
+<img src="/pic/20221207102209.png" class="lazyload placeholder" data-srcset="/pic/20221207102209.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
+<p><strong>CHOMP 规划算法</strong></p>
+<p>如上图所示，曲线插值拟合算法在曲线平滑控制及优化方面有显著的优势，按照曲线生成方式及其种类可分为：<strong>基于插值的规划算法</strong>、<strong>基于特殊曲线的规划算法</strong>及<strong>基于优化的规划算法</strong>三类，该类算法在自动驾驶等领域有着广泛的应用。</p>
+<h1 id="仿生智能算法"><a class="anchor" href="#仿生智能算法">#</a> 仿生智能算法</h1>
+<p>针对机器人运动规划问题，除上述基于经典模型的规划算法外（《图规划算法》、《空间采样算法》和《曲线插值拟合算法》），还有神经网络、模糊逻辑及基于自然灵感的算法（遗传算法、粒子群算法、蚁群算法等），并逐渐成为研究热点。</p>
+<p>如图所示，与经典算法相比，智能算法能够较好适应复杂动态环境中的不确定、不完整的信息，但需要前期学习阶段和较高计算成本，适用于大型机器人，如无人车等。<br />
+<img src="/pic/20221207102538.png" class="lazyload placeholder" data-srcset="/pic/20221207102538.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
+<h1 id="对比"><a class="anchor" href="#对比">#</a> 对比</h1>
+<p>图规划算法与空间采样算法已经能够在诸多场景下的规划生成一条无碰撞路径，实时性和动态适应性逐渐提升，但多数算法仍存在路径质量差、未考虑动力学约束等问题。而曲线插值拟合算法正好与之配合，能够容易生成连续性好的轨迹曲线。</p>
+<p>多数<strong>仿生智能算法</strong>处理动态环境下的规划问题时存在<strong>实时性、收敛性均不稳定</strong>等问题，实际应用较少。</p>
+<p>从目前研究思路来看，多是先采用图规划算法、空间采样算法生成全局路径或初始路径，再使用曲线插值拟合算法，综合考虑系统软硬约束，优化生成质量好的轨迹。<br />
+<img src="/pic/20221207102742.png" class="lazyload placeholder" data-srcset="/pic/20221207102742.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="" /></p>
+<p><strong>转自</strong>：<a href="https://zhuanlan.zhihu.com/p/518369017">https://zhuanlan.zhihu.com/p/518369017</a></p>
 ]]></content>
       <categories>
         <category>规划控制</category>
@@ -1177,61 +1177,6 @@ prospect::~</p>
       </tags>
   </entry>
   <entry>
-    <title>Formation Flight in Dense Environments</title>
-    <url>//post/paper/uav/@Quan2022a.html</url>
-    <content><![CDATA[<h1 id="formation-flight-in-dense-environments"><a class="anchor" href="#formation-flight-in-dense-environments">#</a> Formation Flight in Dense Environments</h1>
-<p>&lt;cite&gt;* Authors: [[Lun Quan]], [[Longji Yin]], [[Tingrui Zhang]], [[Mingyang Wang]], [[Ruilin Wang]], [[Sheng Zhong]], [[Yanjun Cao]], [[Chao Xu]], [[Fei Gao]]&lt;/cite&gt;</p>
-<hr />
-<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
-<p>comment:: 现有方法缺乏在<strong>密集环境中</strong>实现完全自主的<strong>大规模编队飞行</strong>的能力。本文提出了一种基于<strong>可微图的度量</strong>来量化编队之间的总体相似性误差。此度量对于旋转，平移和缩放是不变的，为编队协调提供了更大的自由度。设计了一个分布式轨迹优化框架，该框架考虑了编队相似性、避障和动态可行性。为了提高高度受限场景下编队导航的弹性，我们提出了一种<strong>群重组方法</strong>，该方法通过生成本地导航目标来自适应地调整编队参数和任务分配。在这项工作中，提出了一种新颖的<strong>群协议策略</strong>，称为全局重新规划和编队级路径规划器，以有效地协调群全局规划和局部轨迹优化。</p>
-<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
-<p>%% 简介 %%<br />
- introduction:: 三个核心挑战限制了实际编队的应用 😦 a) 维护编队的群体与单个机器人避开障碍物之间的冲突是不可避免的，并且难以缓解；(b) 预定义的编队在未知的约束环境的响应中缺乏弹性适应性；(c) 群系统无法从未知障碍物或所需地层形状突然变化 (称为编队变换) 引起的不利形成状态中快速恢复。<br />
-三个标准：便携性；适应性；预测性；弹性；快速恢复</p>
-<ul>
-<li>提出了一种基于图论的可微分度量，有效地量化了三维构造之间的相似性误差。通过求解最优编队位置序列来解耦轨迹优化。</li>
-<li>设计了一个分布式时空轨迹优化框架，考虑了编队相似性，避障和动态可行性。</li>
-<li>提出了一种群体重组方法来实现群体分布的弹性变形，同时解决了最佳编队对准和任务分配问题 (简称 ALAS)。</li>
-<li>设计了一种群协议方法，该方法由编队级全局路径查找算法和全局重映射局部重规划策略 (简称 GRLR) 组成。即使在迷宫图中，生成的全局轨迹也可以容纳障碍物约束并为编队飞行提供安全指导。<br />
-%% 相关工作（国内外研究现状）%%<br />
-related works::</li>
-</ul>
-<ol>
-<li>分布式群轨迹规划<br />
- a. 基于 VO 的方法，轨迹不平滑<br />
- b. 基于优化的方法，计算量大</li>
-<li>自由空间中的编队飞行</li>
-<li>受限环境下的编队飞行<br />
- %% 主要工作 %%<br />
-main work::</li>
-<li>系统概述<br />
- a. 群体空中机器人系统<br />
-自制无人机介绍<br />
- b. 机载本地化方案<br />
-视觉惯性里程计 (VIO)+ 漂移矫正<br />
- c. 分布式局部编队轨迹优化<br />
-每个机器人通过计算编队相似性误差来评估编队状态，并生成其最佳编队位置序列以保持所需的编队形状。然后，随后的轨迹优化模块生成用于实时导航的时空形成轨迹 。<br />
-d. 群体重组和协议方法<br />
-它仅集中重新映射群形成的关键参数，并通过分布式重新规划局部轨迹使群形成快速收敛。</li>
-</ol>
-<p>%% 机构 &amp; 作者 %%<br />
-who:: Lun Quan</p>
-<p>%% 未来展望 %%<br />
- prospect:: 作者提出：“未来，我们将通过<strong>子图的局部信息</strong>传播进一步提高分布式编队飞行方法的效率。同时，探索更智能的群体协作行为，提高任务容量。为了使群机器人适应更多的复杂的环境和突发事件，我们也准备探索<strong>容错的机群编队系统</strong>”。</p>
-<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
-<p>[1] Quan L, Yin L, Zhang T, et al. Formation Flight in Dense Environments[J]. arXiv preprint arXiv:2210.04048, 2022.</p>
-]]></content>
-      <categories>
-        <category>阅读文章</category>
-        <category>空中</category>
-      </categories>
-      <tags>
-        <tag>规划</tag>
-        <tag>基于优化</tag>
-        <tag>编队</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Optimal trajectory generation for dynamic street scenarios in a Frenet Frame</title>
     <url>//post/paper/car/@werlingOptimalTrajectoryGeneration2010.html</url>
     <content><![CDATA[<h1 id="optimal-trajectory-generation-for-dynamic-street-scenarios-in-a-frenét-frame"><a class="anchor" href="#optimal-trajectory-generation-for-dynamic-street-scenarios-in-a-frenét-frame">#</a> Optimal trajectory generation for dynamic street scenarios in a Frenét Frame</h1>
@@ -1288,6 +1233,61 @@ who::</p>
       <tags>
         <tag>规划</tag>
         <tag>综述</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Formation Flight in Dense Environments</title>
+    <url>//post/paper/uav/@Quan2022a.html</url>
+    <content><![CDATA[<h1 id="formation-flight-in-dense-environments"><a class="anchor" href="#formation-flight-in-dense-environments">#</a> Formation Flight in Dense Environments</h1>
+<p>&lt;cite&gt;* Authors: [[Lun Quan]], [[Longji Yin]], [[Tingrui Zhang]], [[Mingyang Wang]], [[Ruilin Wang]], [[Sheng Zhong]], [[Yanjun Cao]], [[Chao Xu]], [[Fei Gao]]&lt;/cite&gt;</p>
+<hr />
+<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
+<p>comment:: 现有方法缺乏在<strong>密集环境中</strong>实现完全自主的<strong>大规模编队飞行</strong>的能力。本文提出了一种基于<strong>可微图的度量</strong>来量化编队之间的总体相似性误差。此度量对于旋转，平移和缩放是不变的，为编队协调提供了更大的自由度。设计了一个分布式轨迹优化框架，该框架考虑了编队相似性、避障和动态可行性。为了提高高度受限场景下编队导航的弹性，我们提出了一种<strong>群重组方法</strong>，该方法通过生成本地导航目标来自适应地调整编队参数和任务分配。在这项工作中，提出了一种新颖的<strong>群协议策略</strong>，称为全局重新规划和编队级路径规划器，以有效地协调群全局规划和局部轨迹优化。</p>
+<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
+<p>%% 简介 %%<br />
+ introduction:: 三个核心挑战限制了实际编队的应用 😦 a) 维护编队的群体与单个机器人避开障碍物之间的冲突是不可避免的，并且难以缓解；(b) 预定义的编队在未知的约束环境的响应中缺乏弹性适应性；(c) 群系统无法从未知障碍物或所需地层形状突然变化 (称为编队变换) 引起的不利形成状态中快速恢复。<br />
+三个标准：便携性；适应性；预测性；弹性；快速恢复</p>
+<ul>
+<li>提出了一种基于图论的可微分度量，有效地量化了三维构造之间的相似性误差。通过求解最优编队位置序列来解耦轨迹优化。</li>
+<li>设计了一个分布式时空轨迹优化框架，考虑了编队相似性，避障和动态可行性。</li>
+<li>提出了一种群体重组方法来实现群体分布的弹性变形，同时解决了最佳编队对准和任务分配问题 (简称 ALAS)。</li>
+<li>设计了一种群协议方法，该方法由编队级全局路径查找算法和全局重映射局部重规划策略 (简称 GRLR) 组成。即使在迷宫图中，生成的全局轨迹也可以容纳障碍物约束并为编队飞行提供安全指导。<br />
+%% 相关工作（国内外研究现状）%%<br />
+related works::</li>
+</ul>
+<ol>
+<li>分布式群轨迹规划<br />
+ a. 基于 VO 的方法，轨迹不平滑<br />
+ b. 基于优化的方法，计算量大</li>
+<li>自由空间中的编队飞行</li>
+<li>受限环境下的编队飞行<br />
+ %% 主要工作 %%<br />
+main work::</li>
+<li>系统概述<br />
+ a. 群体空中机器人系统<br />
+自制无人机介绍<br />
+ b. 机载本地化方案<br />
+视觉惯性里程计 (VIO)+ 漂移矫正<br />
+ c. 分布式局部编队轨迹优化<br />
+每个机器人通过计算编队相似性误差来评估编队状态，并生成其最佳编队位置序列以保持所需的编队形状。然后，随后的轨迹优化模块生成用于实时导航的时空形成轨迹 。<br />
+d. 群体重组和协议方法<br />
+它仅集中重新映射群形成的关键参数，并通过分布式重新规划局部轨迹使群形成快速收敛。</li>
+</ol>
+<p>%% 机构 &amp; 作者 %%<br />
+who:: Lun Quan</p>
+<p>%% 未来展望 %%<br />
+ prospect:: 作者提出：“未来，我们将通过<strong>子图的局部信息</strong>传播进一步提高分布式编队飞行方法的效率。同时，探索更智能的群体协作行为，提高任务容量。为了使群机器人适应更多的复杂的环境和突发事件，我们也准备探索<strong>容错的机群编队系统</strong>”。</p>
+<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
+<p>[1] Quan L, Yin L, Zhang T, et al. Formation Flight in Dense Environments[J]. arXiv preprint arXiv:2210.04048, 2022.</p>
+]]></content>
+      <categories>
+        <category>阅读文章</category>
+        <category>空中</category>
+      </categories>
+      <tags>
+        <tag>规划</tag>
+        <tag>基于优化</tag>
+        <tag>编队</tag>
       </tags>
   </entry>
   <entry>
@@ -1398,43 +1398,6 @@ who::<strong> 李 晔</strong> --- 哈尔滨工程大学水下机器人技术重
       </tags>
   </entry>
   <entry>
-    <title>AUV归航和坐落式对接的半物理仿真</title>
-    <url>//post/paper/uuv/@AUV%E8%A7%84%E5%88%92%E5%92%8C%E5%9D%90%E8%90%BD%E5%BC%8F%E5%AF%B9%E6%8E%A5%E7%9A%84%E5%8D%8A%E7%89%A9%E7%90%86%E4%BB%BF%E7%9C%9F-2017.html</url>
-    <content><![CDATA[<h1 id="auv归航和坐落式对接的半物理仿真pdf"><a class="anchor" href="#auv归航和坐落式对接的半物理仿真pdf">#</a> AUV 归航和坐落式对接的半物理仿真.pdf</h1>
-<ul>
-<li>Authors: [[姜言清 李晔]]</li>
-</ul>
-<hr />
-<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
-<p>comment:: 为解决现有仿真系统忽略海流干扰，不能直观反映模型实时运动状态的问题，设计了一套以 3 维视景方式呈现的半物理仿真系统，以直观地反映归航过程中、以及以类似直升机坐落方式进行对接回收的过程中 AUV（自主式水下机器人）的运动状态．利用 Multigen Creator 软件对 AUV 和水下地形环境建模，通过 VisualC++ 调用 Vega 的仿真界面库实现视景仿真。</p>
-<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
-<p>%% 创新点到底是什么？%%<br />
-novelty::</p>
-<p>%% 有什么意义？%%<br />
-significance::</p>
-<p>%% 使用了什么方法？%%<br />
- usage method:: 运动控制部分基于 #B 样条  理论设计归航时的全局路径规划方法，通<br />
-过   #遗传算法  搜索满足欠驱动约束的全局路径</p>
-<p>%% 优点和缺点？%%<br />
-merits ::</p>
-<p>demerits::</p>
-<p>%% 机构 &amp; 作者 %%<br />
- who:: [[哈工程 - 李晔]]，[[哈工程 - 姜言清]]</p>
-<p>%% 未来展望 %%<br />
- prospect:: 结果表明：海流在归航阶段对 AUV 的归航路径跟踪偏差量影响较小，在<strong>坐落式对接</strong>阶段当<strong>海流与 AUV 艏向相对角度较大时其影响较大</strong>，甚至使回收失败。</p>
-<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
-<p>[1] 李晔，何佳雨，姜言清，安力.AUV 归航和坐落式对接的半物理仿真 [J]. 机器人，2017,39 (01):119-128.DOI:10.13973/j.cnki.robot.2017.0119.</p>
-]]></content>
-      <categories>
-        <category>阅读文章</category>
-        <category>水下</category>
-      </categories>
-      <tags>
-        <tag>B样条</tag>
-        <tag>遗传算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>A Review of the Path Planning and Formation Control for Multiple Autonomous Underwater Vehicles</title>
     <url>//post/paper/uuv/@Hadi2021.html</url>
     <content><![CDATA[<h1 id="a-review-of-the-path-planning-and-formation-control-for-multiple-autonomous-underwater-vehicles"><a class="anchor" href="#a-review-of-the-path-planning-and-formation-control-for-multiple-autonomous-underwater-vehicles">#</a> A Review of the Path Planning and Formation Control for Multiple Autonomous Underwater Vehicles</h1>
@@ -1480,8 +1443,8 @@ who::Behnaz Hadi---Babol (Noshirvani) University ofTechnology</p>
         <category>水下</category>
       </categories>
       <tags>
-        <tag>编队</tag>
         <tag>综述</tag>
+        <tag>编队</tag>
       </tags>
   </entry>
   <entry>
@@ -1514,42 +1477,40 @@ merits ::</p>
       </categories>
   </entry>
   <entry>
-    <title>Feedback-Dubins-RRT Recovery Path Planning of UUV in an Underwater Obstacle Environment</title>
-    <url>//post/paper/uuv/@Hao2020.html</url>
-    <content><![CDATA[<h1 id="feedback-dubins-rrt-recovery-path-planning-of-uuv-in-an-underwater-obstacle-environment"><a class="anchor" href="#feedback-dubins-rrt-recovery-path-planning-of-uuv-in-an-underwater-obstacle-environment">#</a> Feedback-Dubins-RRT Recovery Path Planning of UUV in an Underwater Obstacle Environment</h1>
-<p>&lt;cite&gt;* Authors: [[Bing Hao]], [[Zheping Yan]], [[Xuefeng Dai]], [[Qi Yuan]]&lt;/cite&gt;</p>
+    <title>AUV归航和坐落式对接的半物理仿真</title>
+    <url>//post/paper/uuv/@AUV%E8%A7%84%E5%88%92%E5%92%8C%E5%9D%90%E8%90%BD%E5%BC%8F%E5%AF%B9%E6%8E%A5%E7%9A%84%E5%8D%8A%E7%89%A9%E7%90%86%E4%BB%BF%E7%9C%9F-2017.html</url>
+    <content><![CDATA[<h1 id="auv归航和坐落式对接的半物理仿真pdf"><a class="anchor" href="#auv归航和坐落式对接的半物理仿真pdf">#</a> AUV 归航和坐落式对接的半物理仿真.pdf</h1>
 <ul>
-<li>DOI: <a href="https://doi.org/10.1155/2020/8824202">10.1155/2020/8824202</a></li>
+<li>Authors: [[姜言清 李晔]]</li>
 </ul>
 <hr />
 <h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
-<p>comment:: 本文研究了一种已知起始向量和终止向量的 UUV 回收路径规划方法。<strong>根据障碍物的距离和方向信息设计局部结构图</strong>。根据局部结构图，采用带反馈的快速探索随机树（ <strong>RRT</strong>）方法生成逐渐接近目标区域的<strong> 3D Dubins</strong> 路径，讨论 UUV 到达特定目标区域的环境特性。</p>
+<p>comment:: 为解决现有仿真系统忽略海流干扰，不能直观反映模型实时运动状态的问题，设计了一套以 3 维视景方式呈现的半物理仿真系统，以直观地反映归航过程中、以及以类似直升机坐落方式进行对接回收的过程中 AUV（自主式水下机器人）的运动状态．利用 Multigen Creator 软件对 AUV 和水下地形环境建模，通过 VisualC++ 调用 Vega 的仿真界面库实现视景仿真。</p>
 <h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
 <p>%% 创新点到底是什么？%%<br />
- novelty::  针对障碍物密集的环境，提出了一种基于距离和方向信息构建障碍物与目标向量之间的局部结构图的方法。</p>
+novelty::</p>
 <p>%% 有什么意义？%%<br />
- significance:: 避障能力更强</p>
-<p>%% 使用了什么方法？%<br />
- usage method::  #RRT   #Dubins 曲线</p>
+significance::</p>
+<p>%% 使用了什么方法？%%<br />
+ usage method:: 运动控制部分基于 #B 样条  理论设计归航时的全局路径规划方法，通<br />
+过   #遗传算法  搜索满足欠驱动约束的全局路径</p>
 <p>%% 优点和缺点？%%<br />
- merits :: 避障强</p>
+merits ::</p>
 <p>demerits::</p>
 <p>%% 机构 &amp; 作者 %%<br />
- who::Bing Hao --- 齐齐哈尔大学</p>
+ who:: [[哈工程 - 李晔]]，[[哈工程 - 姜言清]]</p>
 <p>%% 未来展望 %%<br />
-prospect:: (1) <strong>实时规划路径</strong>。 (2 需要改进算法思想以生成当前初始条件下的最优路径。</p>
+ prospect:: 结果表明：海流在归航阶段对 AUV 的归航路径跟踪偏差量影响较小，在<strong>坐落式对接</strong>阶段当<strong>海流与 AUV 艏向相对角度较大时其影响较大</strong>，甚至使回收失败。</p>
 <h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
-<p>[1] Hao B, Yan Z, Dai X, et al. Feedback-dubins-RRT recovery path planning of UUV in an underwater obstacle environment[J]. Journal of Sensors, 2020, 2020: 1-9.</p>
+<p>[1] 李晔，何佳雨，姜言清，安力.AUV 归航和坐落式对接的半物理仿真 [J]. 机器人，2017,39 (01):119-128.DOI:10.13973/j.cnki.robot.2017.0119.</p>
 ]]></content>
       <categories>
         <category>阅读文章</category>
         <category>水下</category>
       </categories>
       <tags>
-        <tag>规划</tag>
-        <tag>回收</tag>
-        <tag>RRT</tag>
-        <tag>Dubins</tag>
+        <tag>B样条</tag>
+        <tag>遗传算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1630,6 +1591,45 @@ potential::</p>
       </tags>
   </entry>
   <entry>
+    <title>Feedback-Dubins-RRT Recovery Path Planning of UUV in an Underwater Obstacle Environment</title>
+    <url>//post/paper/uuv/@Hao2020.html</url>
+    <content><![CDATA[<h1 id="feedback-dubins-rrt-recovery-path-planning-of-uuv-in-an-underwater-obstacle-environment"><a class="anchor" href="#feedback-dubins-rrt-recovery-path-planning-of-uuv-in-an-underwater-obstacle-environment">#</a> Feedback-Dubins-RRT Recovery Path Planning of UUV in an Underwater Obstacle Environment</h1>
+<p>&lt;cite&gt;* Authors: [[Bing Hao]], [[Zheping Yan]], [[Xuefeng Dai]], [[Qi Yuan]]&lt;/cite&gt;</p>
+<ul>
+<li>DOI: <a href="https://doi.org/10.1155/2020/8824202">10.1155/2020/8824202</a></li>
+</ul>
+<hr />
+<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
+<p>comment:: 本文研究了一种已知起始向量和终止向量的 UUV 回收路径规划方法。<strong>根据障碍物的距离和方向信息设计局部结构图</strong>。根据局部结构图，采用带反馈的快速探索随机树（ <strong>RRT</strong>）方法生成逐渐接近目标区域的<strong> 3D Dubins</strong> 路径，讨论 UUV 到达特定目标区域的环境特性。</p>
+<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
+<p>%% 创新点到底是什么？%%<br />
+ novelty::  针对障碍物密集的环境，提出了一种基于距离和方向信息构建障碍物与目标向量之间的局部结构图的方法。</p>
+<p>%% 有什么意义？%%<br />
+ significance:: 避障能力更强</p>
+<p>%% 使用了什么方法？%<br />
+ usage method::  #RRT   #Dubins 曲线</p>
+<p>%% 优点和缺点？%%<br />
+ merits :: 避障强</p>
+<p>demerits::</p>
+<p>%% 机构 &amp; 作者 %%<br />
+ who::Bing Hao --- 齐齐哈尔大学</p>
+<p>%% 未来展望 %%<br />
+prospect:: (1) <strong>实时规划路径</strong>。 (2 需要改进算法思想以生成当前初始条件下的最优路径。</p>
+<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
+<p>[1] Hao B, Yan Z, Dai X, et al. Feedback-dubins-RRT recovery path planning of UUV in an underwater obstacle environment[J]. Journal of Sensors, 2020, 2020: 1-9.</p>
+]]></content>
+      <categories>
+        <category>阅读文章</category>
+        <category>水下</category>
+      </categories>
+      <tags>
+        <tag>规划</tag>
+        <tag>回收</tag>
+        <tag>RRT</tag>
+        <tag>Dubins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Survey on Formation Control Algorithms for Multi-AUV System</title>
     <url>//post/paper/uuv/@Li2014.html</url>
     <content><![CDATA[<h1 id="a-survey-on-formation-control-algorithms-for-multi-auv-system"><a class="anchor" href="#a-survey-on-formation-control-algorithms-for-multi-auv-system">#</a> A Survey on Formation Control Algorithms for Multi-AUV System</h1>
@@ -1671,87 +1671,6 @@ potential::</p>
       <tags>
         <tag>编队</tag>
         <tag>控制</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Global path planning for multiple AUVs using GWO</title>
-    <url>//post/paper/uuv/@Panda2020a.html</url>
-    <content><![CDATA[<h1 id="global-path-planning-for-multiple-auvs-using-gwo"><a class="anchor" href="#global-path-planning-for-multiple-auvs-using-gwo">#</a> Global path planning for multiple AUVs using GWO</h1>
-<p>&lt;cite&gt;* Authors: [[Madhusmita Panda]], [[Bikramaditya Das]], [[Bibhuti Bhusan Pati]]&lt;/cite&gt;</p>
-<ul>
-<li>DOI: <a href="https://doi.org/10.24425/ACS.2020.132586">10.24425/ACS.2020.132586</a></li>
-</ul>
-<hr />
-<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
-<p>comment:: 本文采用<strong>灰狼优化</strong>（Grey Wolf Optimization，GWO）算法求解编队中多 AUV 的次优路径。将所得结果与遗传算法（GA）应用于同一问题的结果进行了比较。GWO 被用作编队中三个 AUV 的 GPP 算法。在弱通信条件下，设计了一种基于局部信息的滑模控制器，在保持编队队形的同时最小化跟踪误差。通过 Lyapunov 稳定性分析验证了滑模面的稳定性。通过合理的路径规划，AUV 可以在更短的时间内以更少的能量消耗到达目标，从而使路径成本最小化。因此，较低的路径成本导致较便宜的水下任务。</p>
-<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
-<p>%% 创新点到底是什么？%%<br />
-novelty::</p>
-<ol>
-<li>应用 GWO 生成 AUV 的次优路径。</li>
-<li>提出的性能拥有路径规划是与著名的 GA 路径规划结果考虑障碍自由，丰富环境中度障碍和障碍。比较显示拥有生产成本优化的路径。</li>
-<li>考虑到得到的结果较好，采用 GWO 算法，通过非线性 SMC 控制器对编队中的 3 个 AUV 进行最优路径规划。</li>
-</ol>
-<p>%% 有什么意义？%%<br />
-significance::</p>
-<p>%% 使用了什么方法？%%<br />
-usage method::<strong> 灰狼优化</strong></p>
-<ul>
-<li>约束
-<ol>
-<li>路径长度</li>
-</ol>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>O</mi><mi>D</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>I</mi></munderover><mi>l</mi><mrow><mo fence="true">(</mo><msub><mi>P</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">  L(O D)=\sum_{i=0}^{I} l\left(P_{i}, P_{i+1}\right)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.106005em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></span></p>
-</li>
-</ul>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>l</mi><mrow><mo fence="true">(</mo><msub><mi>P</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo fence="true">)</mo></mrow><mo>=</mo><msqrt><mrow><msup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>x</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence="true">(</mo><msub><mi>y</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence="true">(</mo><msub><mi>z</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>z</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">l\left(P_{i}, P_{i+1}\right)=\sqrt{\left(x_{i+1}-x_{i}\right)^{2}+\left(y_{i+1}- y_{i}\right)^{2}+\left(z_{i+1}-z_{i}\right)^{2}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.84em;vertical-align:-0.454121em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.385879em;"><span class="svg-align" style="top:-3.8em;"><span class="pstrut" style="height:3.8em;"></span><span class="mord" style="padding-left:1em;"><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.345879em;"><span class="pstrut" style="height:3.8em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.8800000000000001em;"><svg width='400em' height='1.8800000000000001em' viewBox='0 0 400000 1944' preserveAspectRatio='xMinYMin slice'><path d='M983 90
-l0 -0
-c4,-6.7,10,-10,18,-10 H400000v40
-H1013.1s-83.4,268,-264.1,840c-180.7,572,-277,876.3,-289,913c-4.7,4.7,-12.7,7,-24,7
-s-12,0,-12,0c-1.3,-3.3,-3.7,-11.7,-7,-25c-35.3,-125.3,-106.7,-373.3,-214,-744
-c-10,12,-21,25,-33,39s-32,39,-32,39c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30
-c26.7,-32.7,52,-63,76,-91s52,-60,52,-60s208,722,208,722
-c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,-658.5
-c53.7,-170.3,84.5,-266.8,92.5,-289.5z
-M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.454121em;"><span></span></span></span></span></span></span></span></span></span></p>
-<pre><code>2. 碰撞惩罚
-    $$
-    C(O D)=\left\&#123;\begin&#123;array&#125;&#123;ll&#125;
-    l_&#123;\min &#125;-r_&#123;\min &#125;, &amp; \text &#123; when &#125; r_&#123;\min &#125;&gt;l_&#123;\min &#125; \\
-    e^&#123;\rho\left(l_&#123;\min &#125;-r_&#123;\min &#125;\right)&#125; &amp; \text &#123; when &#125; r_&#123;\min &#125; \leqslant l_&#123;\min &#125;
-    \end&#123;array&#125;\right.
-    $$
-
-3. 下潜惩罚
-$$
-G(O D)=\max _&#123;i=0 \text &#123; to &#125; d&#125; \lambda\left(P_&#123;i&#125;, P_&#123;i+1&#125;\right)
-$$
-</code></pre>
-<ul>
-<li>优化目标函数<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
-</li>
-</ul>
-<p>%% 优点和缺点？%%<br />
- merits :: 通过适当的 GPP, 成本可以最小化水下机器人路径可以达到他们的目标在更少的时间和更少的能量广阔。</p>
-<p>demerits:: 效率低</p>
-<p>%% 机构 &amp; 作者 %%<br />
-who::MADHUSMITA PANDA</p>
-<p>%% 未来展望 %%<br />
- prospect:: 这项工作可以扩展以获得最优路径形成多个水下机器人的三维水下环境与动态障碍。同时，可以制定新的混合算法相结合的特性与拥有其他一些知名 metaheuristic 算法。</p>
-<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
-<p>[1] Panda M, Das B, Pati B. Global path planning for multiple AUVs using GWO[J]. Archives of Control Sciences, 2020, 30(1): 77-100.</p>
-]]></content>
-      <categories>
-        <category>阅读文章</category>
-        <category>水下</category>
-      </categories>
-      <tags>
-        <tag>规划</tag>
-        <tag>基于优化</tag>
-        <tag>编队</tag>
       </tags>
   </entry>
   <entry>
@@ -1863,6 +1782,87 @@ who::Raajan Jeevan --- Indian Institute of Technology Madras</p>
       <tags>
         <tag>规划</tag>
         <tag>综述</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Global path planning for multiple AUVs using GWO</title>
+    <url>//post/paper/uuv/@Panda2020a.html</url>
+    <content><![CDATA[<h1 id="global-path-planning-for-multiple-auvs-using-gwo"><a class="anchor" href="#global-path-planning-for-multiple-auvs-using-gwo">#</a> Global path planning for multiple AUVs using GWO</h1>
+<p>&lt;cite&gt;* Authors: [[Madhusmita Panda]], [[Bikramaditya Das]], [[Bibhuti Bhusan Pati]]&lt;/cite&gt;</p>
+<ul>
+<li>DOI: <a href="https://doi.org/10.24425/ACS.2020.132586">10.24425/ACS.2020.132586</a></li>
+</ul>
+<hr />
+<h3 id="初读印象"><a class="anchor" href="#初读印象">#</a> 初读印象</h3>
+<p>comment:: 本文采用<strong>灰狼优化</strong>（Grey Wolf Optimization，GWO）算法求解编队中多 AUV 的次优路径。将所得结果与遗传算法（GA）应用于同一问题的结果进行了比较。GWO 被用作编队中三个 AUV 的 GPP 算法。在弱通信条件下，设计了一种基于局部信息的滑模控制器，在保持编队队形的同时最小化跟踪误差。通过 Lyapunov 稳定性分析验证了滑模面的稳定性。通过合理的路径规划，AUV 可以在更短的时间内以更少的能量消耗到达目标，从而使路径成本最小化。因此，较低的路径成本导致较便宜的水下任务。</p>
+<h3 id="文章骨架"><a class="anchor" href="#文章骨架">#</a> 文章骨架</h3>
+<p>%% 创新点到底是什么？%%<br />
+novelty::</p>
+<ol>
+<li>应用 GWO 生成 AUV 的次优路径。</li>
+<li>提出的性能拥有路径规划是与著名的 GA 路径规划结果考虑障碍自由，丰富环境中度障碍和障碍。比较显示拥有生产成本优化的路径。</li>
+<li>考虑到得到的结果较好，采用 GWO 算法，通过非线性 SMC 控制器对编队中的 3 个 AUV 进行最优路径规划。</li>
+</ol>
+<p>%% 有什么意义？%%<br />
+significance::</p>
+<p>%% 使用了什么方法？%%<br />
+usage method::<strong> 灰狼优化</strong></p>
+<ul>
+<li>约束
+<ol>
+<li>路径长度</li>
+</ol>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>O</mi><mi>D</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>I</mi></munderover><mi>l</mi><mrow><mo fence="true">(</mo><msub><mi>P</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">  L(O D)=\sum_{i=0}^{I} l\left(P_{i}, P_{i+1}\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.106005em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></span></p>
+</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>l</mi><mrow><mo fence="true">(</mo><msub><mi>P</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo fence="true">)</mo></mrow><mo>=</mo><msqrt><mrow><msup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>x</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence="true">(</mo><msub><mi>y</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence="true">(</mo><msub><mi>z</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>z</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">l\left(P_{i}, P_{i+1}\right)=\sqrt{\left(x_{i+1}-x_{i}\right)^{2}+\left(y_{i+1}- y_{i}\right)^{2}+\left(z_{i+1}-z_{i}\right)^{2}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.84em;vertical-align:-0.454121em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.385879em;"><span class="svg-align" style="top:-3.8em;"><span class="pstrut" style="height:3.8em;"></span><span class="mord" style="padding-left:1em;"><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954008em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.345879em;"><span class="pstrut" style="height:3.8em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.8800000000000001em;"><svg width='400em' height='1.8800000000000001em' viewBox='0 0 400000 1944' preserveAspectRatio='xMinYMin slice'><path d='M983 90
+l0 -0
+c4,-6.7,10,-10,18,-10 H400000v40
+H1013.1s-83.4,268,-264.1,840c-180.7,572,-277,876.3,-289,913c-4.7,4.7,-12.7,7,-24,7
+s-12,0,-12,0c-1.3,-3.3,-3.7,-11.7,-7,-25c-35.3,-125.3,-106.7,-373.3,-214,-744
+c-10,12,-21,25,-33,39s-32,39,-32,39c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30
+c26.7,-32.7,52,-63,76,-91s52,-60,52,-60s208,722,208,722
+c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,-658.5
+c53.7,-170.3,84.5,-266.8,92.5,-289.5z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.454121em;"><span></span></span></span></span></span></span></span></span></span></p>
+<pre><code>2. 碰撞惩罚
+    $$
+    C(O D)=\left\&#123;\begin&#123;array&#125;&#123;ll&#125;
+    l_&#123;\min &#125;-r_&#123;\min &#125;, &amp; \text &#123; when &#125; r_&#123;\min &#125;&gt;l_&#123;\min &#125; \\
+    e^&#123;\rho\left(l_&#123;\min &#125;-r_&#123;\min &#125;\right)&#125; &amp; \text &#123; when &#125; r_&#123;\min &#125; \leqslant l_&#123;\min &#125;
+    \end&#123;array&#125;\right.
+    $$
+
+3. 下潜惩罚
+$$
+G(O D)=\max _&#123;i=0 \text &#123; to &#125; d&#125; \lambda\left(P_&#123;i&#125;, P_&#123;i+1&#125;\right)
+$$
+</code></pre>
+<ul>
+<li>优化目标函数<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
+</li>
+</ul>
+<p>%% 优点和缺点？%%<br />
+ merits :: 通过适当的 GPP, 成本可以最小化水下机器人路径可以达到他们的目标在更少的时间和更少的能量广阔。</p>
+<p>demerits:: 效率低</p>
+<p>%% 机构 &amp; 作者 %%<br />
+who::MADHUSMITA PANDA</p>
+<p>%% 未来展望 %%<br />
+ prospect:: 这项工作可以扩展以获得最优路径形成多个水下机器人的三维水下环境与动态障碍。同时，可以制定新的混合算法相结合的特性与拥有其他一些知名 metaheuristic 算法。</p>
+<h3 id="参考文献"><a class="anchor" href="#参考文献">#</a> 参考文献</h3>
+<p>[1] Panda M, Das B, Pati B. Global path planning for multiple AUVs using GWO[J]. Archives of Control Sciences, 2020, 30(1): 77-100.</p>
+]]></content>
+      <categories>
+        <category>阅读文章</category>
+        <category>水下</category>
+      </categories>
+      <tags>
+        <tag>规划</tag>
+        <tag>基于优化</tag>
+        <tag>编队</tag>
       </tags>
   </entry>
   <entry>
