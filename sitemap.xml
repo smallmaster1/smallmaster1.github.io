@@ -281,15 +281,6 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/box/animation/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://smallmaster1.github.io/box/nav/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
@@ -299,34 +290,7 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/box/gallery/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/personal/about/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/life/music/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/life/movies/index.html</loc>
+    <loc>https://smallmaster1.github.io/box/animation/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -344,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/personal/bb/index.html</loc>
+    <loc>https://smallmaster1.github.io/life/movies/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -353,25 +317,7 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/personal/love/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/social/link/index.html</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/site/census/index.html</loc>
+    <loc>https://smallmaster1.github.io/box/gallery/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -389,7 +335,61 @@
   </url>
   
   <url>
+    <loc>https://smallmaster1.github.io/life/music/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/site/census/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/personal/about/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/social/link/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/personal/bb/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://smallmaster1.github.io/social/fcircle/index.html</loc>
+    
+    <lastmod>2023-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/personal/love/index.html</loc>
     
     <lastmod>2023-03-07</lastmod>
     
@@ -416,13 +416,6 @@
 
   
   <url>
-    <loc>https://smallmaster1.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://smallmaster1.github.io/tags/python/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -431,6 +424,13 @@
   
   <url>
     <loc>https://smallmaster1.github.io/tags/%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://smallmaster1.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -479,6 +479,13 @@
   </url>
   
   <url>
+    <loc>https://smallmaster1.github.io/tags/%E7%BB%BC%E8%BF%B0/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://smallmaster1.github.io/tags/DWA/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -487,13 +494,6 @@
   
   <url>
     <loc>https://smallmaster1.github.io/tags/%E5%9F%BA%E4%BA%8E%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2023-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://smallmaster1.github.io/tags/%E7%BB%BC%E8%BF%B0/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -542,14 +542,14 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/tags/%E6%8E%A7%E5%88%B6/</loc>
+    <loc>https://smallmaster1.github.io/tags/%E8%A6%86%E7%9B%96/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/tags/%E8%A6%86%E7%9B%96/</loc>
+    <loc>https://smallmaster1.github.io/tags/%E6%8E%A7%E5%88%B6/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -579,28 +579,28 @@
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/categories/paper/</loc>
+    <loc>https://smallmaster1.github.io/categories/Paper/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/categories/paper/uuv/</loc>
+    <loc>https://smallmaster1.github.io/categories/Paper/uuv/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/categories/paper/car/</loc>
+    <loc>https://smallmaster1.github.io/categories/Paper/car/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://smallmaster1.github.io/categories/paper/uav/</loc>
+    <loc>https://smallmaster1.github.io/categories/Paper/uav/</loc>
     <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
