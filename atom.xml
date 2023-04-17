@@ -6,7 +6,7 @@
   <link href="https://smallmaster1.github.io/atom.xml" rel="self"/>
   
   <link href="https://smallmaster1.github.io/"/>
-  <updated>2023-04-14T13:03:23.874Z</updated>
+  <updated>2023-04-17T13:05:31.164Z</updated>
   <id>https://smallmaster1.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nanopi NEO Core测试</title>
+    <link href="https://smallmaster1.github.io/posts/c969f465.html"/>
+    <id>https://smallmaster1.github.io/posts/c969f465.html</id>
+    <published>2023-04-17T03:46:56.153Z</published>
+    <updated>2023-04-17T13:05:31.164Z</updated>
+    
+    <content type="html"><![CDATA[<h1>前言</h1><p>​    最近收到了一块小板子，需要测试一下它的性能，但是在网上的资料都不太能满足我的需求，于是这里简单分享一下我的测试过程。板子就和下面的图类似。他们的官网也有一些教程，这里给出链接:<a href="http://wiki.friendlyelec.com/wiki/index.php/NanoPi_NEO_Core#System_Login">http://wiki.friendlyelec.com/wiki/index.php/NanoPi_NEO_Core#System_Login</a><br><img src="https://img-blog.csdnimg.cn/551b94cd4bf4459fabdcc14bc9f238af.png" alt="img"></p><h1>一些测试前的准备</h1><h2 id="硬件">硬件</h2><ul><li>microUSB的数据线一根，用来给板子供电，要求5v/2A的电源，直接用电脑的USB口供电即可。</li><li>网线一根，用来进行数据传输，这里主要使用网线连接电脑和板子后，使用ssh进行操作系统的访问。</li><li>一台电脑</li><li>一张8GB的sd卡，我用的是一张128GB的sd卡，最好找一张读写速度快一点的。</li></ul><h2 id="软件">软件</h2><ul><li>MobaXterm终端，这个终端搭建选自己习惯的就行</li><li>win32diskimager, 用来烧录镜像</li></ul><h2 id="镜像">镜像</h2><ul><li>在这里(<a href="https://download.friendlyelec.com/nanopineocore">https://download.friendlyelec.com/nanopineocore</a>)下载你的镜像文件。本人选的OneDrive，有会员的小伙伴可以选择网盘下载。根据你的板子的型号以及你的需求，选择你的镜像。这里我选择的是：Base on UbuntuCore, kernel: Linux-4.14</li><li><img src="https://img-blog.csdnimg.cn/90f04829509f476e90b7df05d09df24e.png" alt="img"></li><li><div class="tip 到这里一切就准备就绪啦,下面开始搞事情"><p>info</p></div></li></ul><h1>写入镜像</h1><ol><li>插入sd卡到电脑，由于本人电脑的接口限制，我使用了一个读卡器。</li><li>使用管理员权限打开win32diskimager，选择你的镜像和刚才的sd卡，写入即可<br><img src="https://img-blog.csdnimg.cn/f191516c8143428795ffcd224c48243e.png" alt="img"></li></ol><h1>连接</h1><p>完成以上操作后，我们就可以开始进行连接了。<br>首先，我们需要获取到板子的ip地址，这里需要进行一些简单的设置。</p><ol><li><p>连接你的板子，供电和网口</p></li><li><p>打开电脑的管理网络适配器设置<br><img src="https://img-blog.csdnimg.cn/5b0c0abdd3a944fdb015a1140cff554b.png" alt="img"></p></li><li><p>打开更多网络适配器选项，我这里用的是win11。</p></li><li><p>右击以太网，选择属性，并选择&quot;TPC/IPv4&quot;<br><img src="https://img-blog.csdnimg.cn/38a2a8b304cc45e2a96c37bb66a5f30a.png" alt="img"></p></li><li><p>选择自动获取Ip<br><img src="https://img-blog.csdnimg.cn/c37c45faa8a04343872327040fa3e443.png" alt="img"></p></li><li><p>在选择你的WLAN-&gt;属性-&gt;共享:打开连接共享。</p></li><li><p>打开你的终端，使用&quot;ipconfig&quot; 查看你的以太网IPv4地址是否变成192.168开头的ip。</p></li><li><p>在终端中输入&quot;arp -a&quot;查看你的ip,还是以上面的192.168开头的ip，记下这个ip。</p></li><li><p>打开 MobaXterm终端 输入你的Ip<br><img src="https://img-blog.csdnimg.cn/a0d4b281c86c45ed814a9dc0b13061f8.png" alt="img"></p></li><li><p>输入密码 ：pi，即可进入一下页面，如果看到一下页面就代表你成功访问了这块板子</p></li></ol><p><img src="https://img-blog.csdnimg.cn/fff426e77b2348b09e23cb62c005ad63.png" alt="img"></p><pre><code>  &#123;% tip success %&#125;success&#123;% endtip %&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;​    最近收到了一块小板子，需要测试一下它的性能，但是在网上的资料都不太能满足我的需求，于是这里简单分享一下我的测试过程。板子就和下面的图类似。他们的官网也有一些教程，这里给出链接:&lt;a href=&quot;http://wiki.friendlyele</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="https://smallmaster1.github.io/categories/others/"/>
+    
+    
+    <category term="linux" scheme="https://smallmaster1.github.io/tags/linux/"/>
+    
+    <category term="硬件" scheme="https://smallmaster1.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>MOOS-ivp中文手册参考</title>
@@ -293,9 +320,9 @@ $$&lt;/p&gt;
     <category term="其他" scheme="https://smallmaster1.github.io/categories/others/"/>
     
     
-    <category term="python" scheme="https://smallmaster1.github.io/tags/python/"/>
-    
     <category term="栅格地图" scheme="https://smallmaster1.github.io/tags/%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE/"/>
+    
+    <category term="python" scheme="https://smallmaster1.github.io/tags/python/"/>
     
   </entry>
   
@@ -320,9 +347,9 @@ $$&lt;/p&gt;
     <category term="其他" scheme="https://smallmaster1.github.io/categories/others/"/>
     
     
-    <category term="python" scheme="https://smallmaster1.github.io/tags/python/"/>
-    
     <category term="栅格地图" scheme="https://smallmaster1.github.io/tags/%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE/"/>
+    
+    <category term="python" scheme="https://smallmaster1.github.io/tags/python/"/>
     
   </entry>
   
@@ -563,38 +590,6 @@ $$&lt;/p&gt;
       
     <summary type="html">&lt;h1&gt;Optimal trajectory generation for dynamic street scenarios in a Frenét Frame&lt;/h1&gt;
 &lt;p&gt;&lt;cite&gt;* Authors: [[Moritz Werling]], [[Julius Ziegl</summary>
-      
-    
-    
-    
-    <category term="阅读文章" scheme="https://smallmaster1.github.io/categories/Paper/"/>
-    
-    <category term="陆地" scheme="https://smallmaster1.github.io/categories/Paper/car/"/>
-    
-    
-    <category term="规划" scheme="https://smallmaster1.github.io/tags/%E8%A7%84%E5%88%92/"/>
-    
-    <category term="综述" scheme="https://smallmaster1.github.io/tags/%E7%BB%BC%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器人运动规划方法综述</title>
-    <link href="https://smallmaster1.github.io/posts/f7359167.html"/>
-    <id>https://smallmaster1.github.io/posts/f7359167.html</id>
-    <published>2023-02-16T06:20:42.492Z</published>
-    <updated>2023-03-14T06:57:02.852Z</updated>
-    
-    <content type="html"><![CDATA[<h1>机器人运动规划方法综述_唐永兴.pdf</h1><p><cite>* Authors: [[ 唐永兴]]</cite></p><hr><h2 id="初读印象">初读印象</h2><p>comment:: 首先阐释运动规划的基本内涵及经典算法的关键步骤；其次针对<strong>实时性</strong>与<strong>解路径（轨迹）品质间的矛盾</strong>，以是否考虑微分约束为标准，有层次地总结了现有的算法加速策略；最后面向不确定性（即传感器不确定性、未来状态不确定性和环境不确定性）下的规划和智能规划提出的新需求，对运动规划领域的最新成果和发展方向进行了评述。</p><h2 id="绪">绪</h2><p>1 开环运动规划的一个中心主题是将连续空间离散化，进而借助人工智能领域的离散搜索思想，将求解运动规划问题视为在高维自由构型空间或自由相空间中的搜索过程。<br>2 反馈运动规划则通过对不确定性进行建模，并将该模型融入规划过程，为机器人的实际运动提供了安全保障。<br><img src="20221016103136.png" alt=""></p><h2 id="传统运动规划">传统运动规划</h2><p>解决传统运动规划问题的思路正是用包含可数个节点的图结构G(V, E)捕捉Cfree的连通信息，并基于此离散结构搜索解路径。</p><h3 id="组合运动规划">组合运动规划</h3><p>CMP为<strong>基于显式表示</strong>的障碍物。<br><strong>可达性</strong><br>对于任一 q ∈Cfree，可以简单高效地计算一条以其为起点，以S中任一点s为终点的路径τ:[0 1]→Cfree，即τ(0)=q，τ(1)=s。<br><strong>连通性</strong><br>由Cfree的胞腔剖分间接生成，如垂直胞腔剖分、圆柱代数剖分等；或通过其他方法直接构造，如可视图法、广义维罗尼图法、轮廓法等。进而利用图搜索算法如Dijkstra算法、A<em>算法、ARA</em>算法、D<em>Lite算法、AD</em>算法及Theta星算法等寻找解路径<br><strong>总结</strong><br>对二维空间非常友好，效果也很好，但是高维空间实时性不太好</p><h3 id="基于采样的运动规划">基于采样的运动规划</h3><p>SBMP通过碰撞检测模块来<strong>避免显式</strong>构建Cobs，并且利用可数的采样点集或采样序列及满足一定条件的连接方式近似捕捉无限不可数的Cfree的连通特性。</p><ol><li>利用确定性采样方式提升算法性能</li><li>利用收集到的Cfree形状信息改善采样分布</li><li>利用解路径代价和尚需代价的估值导引采样分布</li><li>重复使用之前有效的搜索信息并降低重规划的频率</li><li>利用学习算法加速传统运动规划问题的求解过程</li></ol><h2 id="考虑微分约束的开环运动规划">考虑微分约束的开环运动规划</h2><p>基于采样的方法：由于微分约束破坏了CMP所需的良好特性，仅有SBMP可能实现较好移植。<br>基于优化的方法：其一般有三种应用场景，一是在前述解耦规划中，用于平滑和缩短由其它规划算法（如SBMP）生成的路径；二是直接从较差初始猜想（可能是与障碍物相交的线段）开始计算局部最优的无碰轨迹； 三是在已知自由空间的凸胞腔族中规划微分约束可行的(最优)轨迹。</p><ol><li>基于采样方法的KMP<ol><li>度量函数敏感性问题</li><li>最优性问题</li><li>考虑微分约束的基于学习的运动规划方法</li></ol></li><li>基于优化的运动规划算法<ol><li>无约束优化方法</li><li>序列凸规划方法</li><li>凸分解方法</li></ol></li><li>反馈运动规划<ol><li>显示建模不确定性</li><li>隐式建模不确定性</li></ol></li></ol><h3 id="参考文献">参考文献</h3><p>[1]唐永兴,朱战霞,张红文,罗建军,袁建平.机器人运动规划方法综述[J].航空学报,2023,44(02):181-212.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;机器人运动规划方法综述_唐永兴.pdf&lt;/h1&gt;
-&lt;p&gt;&lt;cite&gt;* Authors: [[ 唐永兴]]&lt;/cite&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;初读印象&quot;&gt;初读印象&lt;/h2&gt;
-&lt;p&gt;comment:: 首先阐释运动规划的基本内涵及经典算法的关键步骤；其次针对&lt;</summary>
       
     
     
