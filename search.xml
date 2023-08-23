@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>C++可视化-Matplot++</title>
+      <link href="/posts/84165e8a.html"/>
+      <url>/posts/84165e8a.html</url>
+      
+        <content type="html"><![CDATA[<h1>引言</h1><p>关于c++的可视化一直是不太方便，个人使用过的可视化方案有基于ROS的RVIZ工具，但是这个是基于linux环境的在windows环境下不太适用。如果是小的demo的开发，并且希望在windows端的话，可以使用wsl2在windows 端使用ros的rviz工具进行可视化。个人还使用过opencv的库进行过可视化，但是可视化化效果有点“小丑”。目前找到了一个配置较为简单，使用起来和matlab的画图很类似并且审美也可接受，缺点就是暂时无法画动图，原因是图的更新频率太低了。</p><h1>Matplot++概述</h1><p><strong>Matplot++</strong> 是一个用于数据可视化的图形库，它提供交互式绘图、以高质量格式导出科学出版物绘图的方法、与类似库一致的紧凑语法、数十种具有专用算法的绘图类别、多种编码样式，并支持通用后端。<br>下面是一些效果图的示例，官网文档链接为：<a href="https://alandefreitas.github.io/matplotplusplus/">Home - Matplot++ (alandefreitas.github.io)</a><br><img src="/pic/c1.png" alt=""></p><h1>安装配置</h1><p>由于这部分已经有大佬写的很详细了这里就不再赘述了。主要安装主要有gnuplot下载与安装&amp;Matplot++下载和vs的配置。推荐大佬写的详细安装步骤 <a href="https://blog.csdn.net/davidmrliu/article/details/127852951">Matplotplusplus绘图库的引用_晓程序员的博客-CSDN博客</a><br>在这里分享一下我的配置,帮助大家排除一些问题。<br><img src="/pic/c2.png" alt=""></p><p><img src="/pic/c3.png" alt=""></p><p><img src="/pic/c4.png" alt=""></p><p><img src="/pic/c5.png" alt=""></p><p><img src="/pic/c6.png" alt=""></p><h1>使用简介</h1><h2 id="画矩形">画矩形</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector_1d x = &#123; w-&gt;area[<span class="number">0</span>], w-&gt;area[<span class="number">0</span>] + w-&gt;area[<span class="number">2</span>], w-&gt;area[<span class="number">0</span>] + w-&gt;area[<span class="number">2</span>], w-&gt;area[<span class="number">0</span>] &#125;;</span><br><span class="line">  vector_1d y = &#123; w-&gt;area[<span class="number">1</span>], w-&gt;area[<span class="number">1</span>], w-&gt;area[<span class="number">1</span>] + w-&gt;area[<span class="number">3</span>], w-&gt;area[<span class="number">1</span>] + w-&gt;area[<span class="number">3</span>] &#125;;</span><br><span class="line">  std::string color = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">  matplot::<span class="built_in">fill</span>(x, y, color); <span class="comment">//x,y为矩形的左下和右上坐标</span></span><br><span class="line">  <span class="built_in">hold</span>(on); <span class="comment">//添加在同一图中</span></span><br></pre></td></tr></table></figure><h2 id="画点">画点</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vector_1d x0 = &#123; map.start.first &#125;;</span><br><span class="line">vector_1d y0 = &#123; map.start.second &#125;;</span><br><span class="line"><span class="keyword">auto</span> sta = <span class="built_in">scatter</span>(x0, y0, <span class="number">10</span>); <span class="comment">//起点</span></span><br><span class="line">sta-&gt;<span class="built_in">marker_color</span>(&#123; <span class="number">0.f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;); </span><br><span class="line">sta-&gt;<span class="built_in">marker_face_color</span>(&#123; <span class="number">0.5f</span>, <span class="number">.5</span>f, <span class="number">.7</span>f &#125;); </span><br><span class="line"></span><br><span class="line">vector_1d x1 = &#123; map.goal.first &#125;;</span><br><span class="line">vector_1d y1 = &#123; map.goal.second &#125;;</span><br><span class="line"><span class="keyword">auto</span> goa = <span class="built_in">scatter</span>(x1, y1, <span class="number">10</span>); <span class="comment">//终点</span></span><br><span class="line">goa-&gt;<span class="built_in">marker_color</span>(&#123; <span class="number">0.f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;);</span><br><span class="line">goa-&gt;<span class="built_in">marker_face_color</span>(&#123; <span class="number">0.5f</span>, <span class="number">.4</span>f, <span class="number">.1</span>f &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">axis</span>(matplot::equal);</span><br></pre></td></tr></table></figure><h2 id="画线">画线</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">double</span>&gt; x;</span><br><span class="line"> vector&lt;<span class="type">double</span>&gt; y;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">auto</span> p : path) &#123;</span><br><span class="line">     x.<span class="built_in">push_back</span>(p.first);</span><br><span class="line">     y.<span class="built_in">push_back</span>(p.second);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">auto</span> p = <span class="built_in">plot</span>(x, y);</span><br><span class="line"> p-&gt;<span class="built_in">line_width</span>(<span class="number">1.5</span>);</span><br><span class="line"> p-&gt;<span class="built_in">color</span>(&#123; <span class="number">1.0f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;);</span><br><span class="line"> matplot::<span class="built_in">show</span>();</span><br></pre></td></tr></table></figure><h2 id="效果展示">效果展示</h2><p>跑一个prm算法的小Demo<br><img src="/pic/c7.png" alt=""></p><p>具体的使用可以查看官方文档哦~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 经验 </tag>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nanopi NEO Core测试</title>
       <link href="/posts/c969f465.html"/>
       <url>/posts/c969f465.html</url>

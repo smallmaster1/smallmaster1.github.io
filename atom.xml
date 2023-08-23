@@ -6,7 +6,7 @@
   <link href="https://smallmaster1.github.io/atom.xml" rel="self"/>
   
   <link href="https://smallmaster1.github.io/"/>
-  <updated>2023-04-17T13:26:50.745Z</updated>
+  <updated>2023-08-23T10:16:54.907Z</updated>
   <id>https://smallmaster1.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++可视化-Matplot++</title>
+    <link href="https://smallmaster1.github.io/posts/84165e8a.html"/>
+    <id>https://smallmaster1.github.io/posts/84165e8a.html</id>
+    <published>2023-08-23T10:00:15.848Z</published>
+    <updated>2023-08-23T10:16:54.907Z</updated>
+    
+    <content type="html"><![CDATA[<h1>引言</h1><p>关于c++的可视化一直是不太方便，个人使用过的可视化方案有基于ROS的RVIZ工具，但是这个是基于linux环境的在windows环境下不太适用。如果是小的demo的开发，并且希望在windows端的话，可以使用wsl2在windows 端使用ros的rviz工具进行可视化。个人还使用过opencv的库进行过可视化，但是可视化化效果有点“小丑”。目前找到了一个配置较为简单，使用起来和matlab的画图很类似并且审美也可接受，缺点就是暂时无法画动图，原因是图的更新频率太低了。</p><h1>Matplot++概述</h1><p><strong>Matplot++</strong> 是一个用于数据可视化的图形库，它提供交互式绘图、以高质量格式导出科学出版物绘图的方法、与类似库一致的紧凑语法、数十种具有专用算法的绘图类别、多种编码样式，并支持通用后端。<br>下面是一些效果图的示例，官网文档链接为：<a href="https://alandefreitas.github.io/matplotplusplus/">Home - Matplot++ (alandefreitas.github.io)</a><br><img src="/pic/c1.png" alt=""></p><h1>安装配置</h1><p>由于这部分已经有大佬写的很详细了这里就不再赘述了。主要安装主要有gnuplot下载与安装&amp;Matplot++下载和vs的配置。推荐大佬写的详细安装步骤 <a href="https://blog.csdn.net/davidmrliu/article/details/127852951">Matplotplusplus绘图库的引用_晓程序员的博客-CSDN博客</a><br>在这里分享一下我的配置,帮助大家排除一些问题。<br><img src="/pic/c2.png" alt=""></p><p><img src="/pic/c3.png" alt=""></p><p><img src="/pic/c4.png" alt=""></p><p><img src="/pic/c5.png" alt=""></p><p><img src="/pic/c6.png" alt=""></p><h1>使用简介</h1><h2 id="画矩形">画矩形</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector_1d x = &#123; w-&gt;area[<span class="number">0</span>], w-&gt;area[<span class="number">0</span>] + w-&gt;area[<span class="number">2</span>], w-&gt;area[<span class="number">0</span>] + w-&gt;area[<span class="number">2</span>], w-&gt;area[<span class="number">0</span>] &#125;;</span><br><span class="line">  vector_1d y = &#123; w-&gt;area[<span class="number">1</span>], w-&gt;area[<span class="number">1</span>], w-&gt;area[<span class="number">1</span>] + w-&gt;area[<span class="number">3</span>], w-&gt;area[<span class="number">1</span>] + w-&gt;area[<span class="number">3</span>] &#125;;</span><br><span class="line">  std::string color = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">  matplot::<span class="built_in">fill</span>(x, y, color); <span class="comment">//x,y为矩形的左下和右上坐标</span></span><br><span class="line">  <span class="built_in">hold</span>(on); <span class="comment">//添加在同一图中</span></span><br></pre></td></tr></table></figure><h2 id="画点">画点</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vector_1d x0 = &#123; map.start.first &#125;;</span><br><span class="line">vector_1d y0 = &#123; map.start.second &#125;;</span><br><span class="line"><span class="keyword">auto</span> sta = <span class="built_in">scatter</span>(x0, y0, <span class="number">10</span>); <span class="comment">//起点</span></span><br><span class="line">sta-&gt;<span class="built_in">marker_color</span>(&#123; <span class="number">0.f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;); </span><br><span class="line">sta-&gt;<span class="built_in">marker_face_color</span>(&#123; <span class="number">0.5f</span>, <span class="number">.5</span>f, <span class="number">.7</span>f &#125;); </span><br><span class="line"></span><br><span class="line">vector_1d x1 = &#123; map.goal.first &#125;;</span><br><span class="line">vector_1d y1 = &#123; map.goal.second &#125;;</span><br><span class="line"><span class="keyword">auto</span> goa = <span class="built_in">scatter</span>(x1, y1, <span class="number">10</span>); <span class="comment">//终点</span></span><br><span class="line">goa-&gt;<span class="built_in">marker_color</span>(&#123; <span class="number">0.f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;);</span><br><span class="line">goa-&gt;<span class="built_in">marker_face_color</span>(&#123; <span class="number">0.5f</span>, <span class="number">.4</span>f, <span class="number">.1</span>f &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">axis</span>(matplot::equal);</span><br></pre></td></tr></table></figure><h2 id="画线">画线</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">double</span>&gt; x;</span><br><span class="line"> vector&lt;<span class="type">double</span>&gt; y;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">auto</span> p : path) &#123;</span><br><span class="line">     x.<span class="built_in">push_back</span>(p.first);</span><br><span class="line">     y.<span class="built_in">push_back</span>(p.second);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">auto</span> p = <span class="built_in">plot</span>(x, y);</span><br><span class="line"> p-&gt;<span class="built_in">line_width</span>(<span class="number">1.5</span>);</span><br><span class="line"> p-&gt;<span class="built_in">color</span>(&#123; <span class="number">1.0f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;);</span><br><span class="line"> matplot::<span class="built_in">show</span>();</span><br></pre></td></tr></table></figure><h2 id="效果展示">效果展示</h2><p>跑一个prm算法的小Demo<br><img src="/pic/c7.png" alt=""></p><p>具体的使用可以查看官方文档哦~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
+&lt;p&gt;关于c++的可视化一直是不太方便，个人使用过的可视化方案有基于ROS的RVIZ工具，但是这个是基于linux环境的在windows环境下不太适用。如果是小的demo的开发，并且希望在windows端的话，可以使用wsl2在windows 端使用ros</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="https://smallmaster1.github.io/categories/others/"/>
+    
+    
+    <category term="经验" scheme="https://smallmaster1.github.io/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="c++" scheme="https://smallmaster1.github.io/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>Nanopi NEO Core测试</title>
@@ -573,35 +600,6 @@ $$&lt;/p&gt;
     <category term="规划" scheme="https://smallmaster1.github.io/tags/%E8%A7%84%E5%88%92/"/>
     
     <category term="基于优化" scheme="https://smallmaster1.github.io/tags/%E5%9F%BA%E4%BA%8E%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Optimal trajectory generation for dynamic street scenarios in a Frenet Frame</title>
-    <link href="https://smallmaster1.github.io/posts/27aeb7e5.html"/>
-    <id>https://smallmaster1.github.io/posts/27aeb7e5.html</id>
-    <published>2023-02-16T06:20:42.501Z</published>
-    <updated>2023-04-14T13:04:19.665Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Optimal trajectory generation for dynamic street scenarios in a Frenét Frame</h1><p><cite>* Authors: [[Moritz Werling]], [[Julius Ziegler]], [[Sören Kammel]], [[Sebastian Thrun]]</cite></p><ul><li>DOI: <a href="https://doi.org/10.1109/ROBOT.2010.5509799">10.1109/ROBOT.2010.5509799</a></li></ul><hr><h3 id="初读印象">初读印象</h3><p>comment:: 自动驾驶车辆安全处理动态高速公路和内城场景涉及生成适应交通的轨迹的问题。为了满足全自主系统的实际需求，提出了一种可紧密集成到行为层的半反应式轨迹生成方法.该方法通过在街道的Frenet框架内的最优控制策略结合反应式防撞实现了长期目标，如速度保持、并道、跟随、停止。</p><h3 id="文章骨架">文章骨架</h3><p>%%创新点到底是什么?%%<br>novelty::我们的主要焦点不是在某个成本泛函的优化上。相反，我们在最优意义上用公式表示轨迹跟踪问题，以利用在随时间选择最佳可行轨迹时主张一致性的理论。有了这个，我们试图确保一旦找到最优解，它将被保留（贝尔曼的最优性原则）。对于汽车而言，这意味着它在每个计划步骤中遵循先前计算的轨迹的剩余部分，因此提供了时间一致性。</p><p>%%有什么意义？%%<br>significance::</p><p>%%使用了什么方法?%%<br>usage method::<br><strong>横向运动</strong><br>A.高速轨迹,代价函数<br>$$<br>C_d = k_jJ(d(t))+k_tT+k_dd_1^2<br>$$</p><p>B. 低速代价函数<br>$$<br>C_d = k_jJ_s(d(s))+k_tS+k_dd_1^2<br>$$</p><p><img src="/pic/20230112111357.png" alt=""></p><p><strong>纵向运动</strong><br>A：跟随、合并和停止<br>末状态：</p><p><img src="/pic/20230112112003.png" alt=""><br>代价函数：<br>$$<br>C_t = k_jJ_t+k_tT+k_s[s_1-s_d]^2<br>$$</p><p>跟车：通过积分预测目标未来轨迹<br>合并：计算两车中间的纵向位置</p><p><img src="/pic/20230112113231.png" alt=""></p><p><strong>组合轨迹</strong><br>代价函数：<br>$$<br>C_{lot} = k_{lat}C_{lat}+k_{lon}C_{lon}<br>$$</p><p>%%优点和缺点?%%<br>merits ::</p><p>demerits::</p><p>%%机构&amp;作者%%<br>who::</p><p>%%未来展望%%<br>prospect::由于短优化层,然而,这种方法并不旨在缓解层有远见的决策行为。新的合适的启发式,比如constant-time-gap-law或保守合并检查,可以减少数量的关键情况下处理活性水平。更好的算法被集成到行为层和其他交通参与者可以更精确地预测,进一步我们可以提前与我们的测试车辆道路交通开放,这将显示接受的水平。</p><h3 id="参考文献">参考文献</h3><p>[1] Werling M ,  Ziegler J ,  Kammel S , et al. Optimal Trajectory Generation for Dynamic Street Scenarios in a Frenet Frame[C]// Robotics and Automation (ICRA), 2010 IEEE International Conference on. IEEE, 2010.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;Optimal trajectory generation for dynamic street scenarios in a Frenét Frame&lt;/h1&gt;
-&lt;p&gt;&lt;cite&gt;* Authors: [[Moritz Werling]], [[Julius Ziegl</summary>
-      
-    
-    
-    
-    <category term="阅读文章" scheme="https://smallmaster1.github.io/categories/Paper/"/>
-    
-    <category term="陆地" scheme="https://smallmaster1.github.io/categories/Paper/car/"/>
-    
-    
-    <category term="规划" scheme="https://smallmaster1.github.io/tags/%E8%A7%84%E5%88%92/"/>
-    
-    <category term="综述" scheme="https://smallmaster1.github.io/tags/%E7%BB%BC%E8%BF%B0/"/>
     
   </entry>
   
